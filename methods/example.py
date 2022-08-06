@@ -1,7 +1,7 @@
 # coding:utf-8
-from integration import method_register
+from methods.integration import method_register
 
 
 @method_register
 def count():
-    pass
+    print("count is running")

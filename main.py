@@ -4,14 +4,19 @@ Entry of this project, 'shell' command will execute this file and transport some
 """
 
 import argparse
-from methods import integration
+from methods import integration, example
+
+# registered methods
+methods = integration.methods
+
 
 parser = argparse.ArgumentParser(prog="omtool", description="control and manage tool")
 
+# sub command
 subparsers = parser.add_subparsers(title="Custom tools", help="Customize a tool to control and manage the system.")
-
 parser_count = subparsers.add_parser("count", help="Get the number of objects in the current directory.")
-parser_count.set_defaults(func=integration.methods["count"])
+# bind default method
+parser_count.set_defaults(func=methods["count"])
 
 args = parser.parse_args()
 args.func()
